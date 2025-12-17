@@ -1,0 +1,14 @@
+{
+  "templates": {
+    "declaration_generator": "blob-10",
+    "build_template": "1.0.0"
+  },
+  "components": {
+    "authorization": "3.0.0",
+    "email-calendar-events": "1.0.0",
+    "email": "1.0.0"
+  },
+  "aiCoreVersion": "0.11.0",
+  "motokoVersion": "1.0.0-beta",
+  "coreLibVersion": "implicits-20"
+}

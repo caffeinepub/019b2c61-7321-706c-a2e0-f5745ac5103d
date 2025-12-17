@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Main application component that handles authentication state, profile setup modal display, and renders the calendar view or login prompt based on authentication status with theme provider wrapper.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for all backend operations including user profile management, event CRUD operations, attendee management, and email invitation sending with proper error handling and cache invalidation.",
+  "frontend/src/components/Header.tsx": "Application header with branding, theme toggle button, and login/logout functionality.",
+  "frontend/src/components/Footer.tsx": "Simple footer component with copyright notice and caffeine.ai attribution link.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog for first-time user profile setup requiring name and email input, prevents dismissal until profile is saved.",
+  "frontend/src/components/CalendarView.tsx": "Main calendar interface displaying monthly grid view with event indicators, navigation controls, and create event button, shows detailed event list for selected dates.",
+  "frontend/src/components/EventCard.tsx": "Card component displaying individual event details with edit, delete, and send invitation actions, includes confirmation dialog for deletion.",
+  "frontend/src/components/CreateEventDialog.tsx": "Dialog form for creating new calendar events with fields for title, description, location, date, and time range.",
+  "frontend/src/components/EditEventDialog.tsx": "Tabbed dialog for editing event details and managing attendees with add/remove functionality and role display.",
+  "frontend/src/index.css": "Global styles with OKLCH color system defining blue/indigo/purple themed color palette for both light and dark modes."
+}
