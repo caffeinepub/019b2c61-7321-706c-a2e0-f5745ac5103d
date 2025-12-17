@@ -1,4 +1,4 @@
-# Calendar Application Specification
+# Calendar Application
 
 ## Overview
 A calendar application that allows users to create, manage, and share events with email invitations.
@@ -29,12 +29,18 @@ A calendar application that allows users to create, manage, and share events wit
   - Event details (date, time, description)
   - Sent to all email addresses in the recipients list
 
+### Integration Information Display
+- Display the integration canister ID prominently in the main UI (header or footer)
+- Label clearly as "Integration Canister ID"
+- Use React Query to fetch and display this information
+
 ### User Interface
 - Clean, intuitive React-based frontend
 - Calendar view showing all events for the logged-in user
 - Forms for creating and editing events
 - Interface for selecting and managing email recipients
 - Manual trigger for sending email invitations
+- Integration canister ID display in header or footer area
 
 ## Backend Data Storage
 - User events with all event details
@@ -46,6 +52,7 @@ A calendar application that allows users to create, manage, and share events wit
 - User authentication verification
 - Email sending functionality using the activated email feature
 - Retrieve user-specific events for calendar display
+- Query endpoint to retrieve integration canister ID from EmailClient
 
 ## Language
 - Application content in English

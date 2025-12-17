@@ -192,3 +192,17 @@ export function useSendEventInvitation() {
     },
   });
 }
+
+export function useGetIntegrationsCanisterId() {
+  const { actor, isFetching: actorFetching } = useActor();
+
+  return useQuery<string>({
+    queryKey: ['integrationsCanisterId'],
+    queryFn: async () => {
+      if (!actor) throw new Error('Actor not available');
+      return actor.getIntegrationsCanisterId();
+    },
+    enabled: !!actor && !actorFetching,
+    staleTime: Infinity,
+  });
+}

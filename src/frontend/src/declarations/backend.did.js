@@ -61,6 +61,7 @@ export const idlService = IDL.Service({
   'deleteEvent' : IDL.Func([IDL.Text], [], []),
   'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
   'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+  'getIntegrationsCanisterId' : IDL.Func([], [IDL.Text], []),
   'getUserProfile' : IDL.Func(
       [IDL.Principal],
       [IDL.Opt(UserProfile)],
@@ -137,6 +138,7 @@ export const idlFactory = ({ IDL }) => {
     'deleteEvent' : IDL.Func([IDL.Text], [], []),
     'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
     'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+    'getIntegrationsCanisterId' : IDL.Func([], [IDL.Text], []),
     'getUserProfile' : IDL.Func(
         [IDL.Principal],
         [IDL.Opt(UserProfile)],

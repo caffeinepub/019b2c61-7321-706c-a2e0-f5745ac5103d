@@ -137,6 +137,7 @@ export interface backendInterface {
     deleteEvent(uid: string): Promise<void>;
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
+    getIntegrationsCanisterId(): Promise<string>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     initializeAccessControl(): Promise<void>;
     isCallerAdmin(): Promise<boolean>;
@@ -246,6 +247,20 @@ export class Backend implements backendInterface {
         } else {
             const result = await this.actor.getCallerUserRole();
             return from_candid_UserRole_n11(this.uploadFile, this.downloadFile, result);
+        }
+    }
+    async getIntegrationsCanisterId(): Promise<string> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getIntegrationsCanisterId();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getIntegrationsCanisterId();
+            return result;
         }
     }
     async getUserProfile(arg0: Principal): Promise<UserProfile | null> {

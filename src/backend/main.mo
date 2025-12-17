@@ -1,19 +1,19 @@
 import Text "mo:core/Text";
-import List "mo:core/List";
 import Option "mo:core/Option";
 import Iter "mo:core/Iter";
 import Map "mo:core/Map";
 import Set "mo:core/Set";
 import Order "mo:core/Order";
 import Principal "mo:core/Principal";
-import Array "mo:core/Array";
 import Random "mo:core/Random";
 import Runtime "mo:core/Runtime";
 import AccessControl "authorization/access-control";
 import CalendarEvents "email-calendar-events/calendarEvents";
 import EmailClient "email/emailClient";
 import Uuid "email-calendar-events/uuid";
+import Migration "migration";
 
+(with migration = Migration.run)
 actor {
   // Type for user profile
   public type UserProfile = {
@@ -328,9 +328,17 @@ actor {
     };
 
     // Send invitation email
-    let result = await EmailClient.sendCalendarEvent(
+    let _ = await EmailClient.sendCalendarEvent(
       "no-reply",
       event,
     );
+  };
+
+  // New function to expose the integrations canister ID (authenticated users only)
+  public shared ({ caller }) func getIntegrationsCanisterId() : async Text {
+    if (not AccessControl.hasPermission(accessControlState, caller, #user)) {
+      Runtime.trap("Unauthorized: Only authenticated users can access integration information");
+    };
+    (await EmailClient.getIntegrationsCanisterId()).toText();
   };
 };
